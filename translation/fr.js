@@ -8,7 +8,7 @@ var translationsFR = {
 	PDF_GENERATION: 'Génération du CV en PDF',
 	PDF_EXPORT: 'Exporter en PDF',
 	IDENTITY_PICTURE: 'Photo identit&eacute; MARTIN Baptiste',
-	SITUATION: 'En alternance chez Jouve ITS',
+	SITUATION: 'Ingénieur Logiciel chez Flatirons Jouve',
 
 	// Navigation
 	IDENTITY: 'Identité',
