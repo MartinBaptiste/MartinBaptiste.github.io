@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8" />
+	<meta name="author" content="MARTIN Baptiste" >
+	<meta name="description" content="Je m'appelle Baptiste MARTIN, je suis actuellement en alt&eacute;rnance Master 2 GL." >
+	<meta name="keywords" content="cv martin baptiste informatique Master Ingenieur G&eacute;nie Logiciel" >
+	<meta name="generator" content="Notepad++" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Baptiste MARTIN</title>
+	<link type="image/png" href="/images/favicon.png" rel="icon" />
+	<!-- CSS depandancy -->
+	<link href="/css/w3.css" rel="stylesheet" type="text/css" media="screen" />
+	<link id="styleCSS" href="/css/w3-theme-indigo.css" rel="stylesheet" type="text/css" media="screen" />
+<!-- 
+	<link href="css/index_print" rel="stylesheet.css" type="text/css" media="print" />
+	<link id="printCSS" href="css/index_print_blue.css" rel="stylesheet" type="text/css" media="print" />
+-->
+	<!-- Icon depandancy -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- Language depandancy -->
+	<script type="text/javascript" src="/translation/en.js"></script>
+	<script type="text/javascript" src="/translation/fr.js"></script>
+	<!-- JS depandancy -->
+	<script type="text/javascript" src="/js/bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="/js/bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="/js/bower_components/angular-jsPdf/bower_components/jspdf/dist/jspdf.debug.js"></script>
+	<script type="text/javascript" src="/js/bower_components/html2canvas/build/html2canvas.js"></script>
+	<script type="text/javascript" src="/js/bower_components/angular-jsPdf/angular-jsPDF.js"></script>
+	<script type="text/javascript" src="/js/bower_components/angular-translate/angular-translate.js"></script>
+	<script type="text/javascript" src="/js/bower_components/jQuery/dist/jquery.js"></script>
+	<script type="text/javascript" src="/js/google-analytic.js"></script>
+	<!-- JS application -->
+	<script type="text/javascript" src="/js/index.js"></script>
+	<script type="text/javascript" src="/js/identity.js"></script>
+	<script type="text/javascript">
+		// Defined the root file to route AngularJs
+		$('head').append('<base href="' + window.location.pathname + '" />');
+	</script>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<noscript>
+		<meta http-equiv="refresh" content="0; URL=/error/nojavascipt.html" >
+	</noscript>
+</head>
+<body ng-app="OnlineCV">
+	<header class="w3-header w3-theme w3-card-2" ng-controller="HeaderController">
+		<div id="param" class="w3-modal notPrintable">
+			<div class="w3-modal-dialog">
+				<div class="w3-modal-content w3-card-8">
+					<header class="w3-container w3-theme">
+						<a ng-click="closeParam();" class="w3-closebtn">&times;</a>
+						<h2>{{ 'PARAMETERS' | translate }}</h2>
+					</header>
+					<div class="w3-container">
+						<div>
+							<p class="w3-theme-light w3-padding w3-large">{{ 'COLORS' | translate }} :</p>
+							<div class="w3-padding-left">
+								<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="14">
+									<g>
+										<rect id="indigo" x="2" y="2" width="10" height="10" fill="#3F51B5" stroke="#FFFF00" stroke-width="2" ng-click="changeColor('indigo');" />
+										<rect id="deep-purple" x="17" y="2" width="10" height="10" fill="#673AB7" stroke="" stroke-width="2" ng-click="changeColor('deep-purple');" />
+										<rect id="blue-grey" x="32" y="2" width="10" height="10" fill="#607D8B" stroke="" stroke-width="2" ng-click="changeColor('blue-grey');" />
+										<rect id="black" x="47" y="2" width="10" height="10" fill="#212121" stroke="" stroke-width="2" ng-click="changeColor('black');" />
+									</g>
+								</svg>
+							</div>
+						</div>
+						<div>
+							<p class="w3-theme-light w3-padding w3-large">{{ 'LANGUAGE' | translate }} :</p>
+							<div class="w3-padding-left">
+								<div class="w3-left" title="{{ 'LANGUAGE_FR' | translate }}">
+									<img ng-click="setFr()" alt="{{ 'LANGUAGE_FR' | translate }}" src="/images/francais.svg" />
+									<input id="languageFR" ng-click="setFr()" type="radio" name="langage" value="fr">
+								</div>
+								<div title="{{ 'LANGUAGE_EN' | translate }}">
+									<img ng-click="setEn()" alt="{{ 'LANGUAGE_EN' | translate }}" src="/images/english.svg" />
+									<input id="languageEN" ng-click="setEn()" type="radio" name="langage" value="en" >
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<i ng-click="showParam();" title="{{ 'PARAMETERS' | translate }}" class="material-icons w3-pointer w3-xxlarge w3-right">settings</i>
+		<i ng-click="createPDF();" title="{{ 'PDF_GENERATION' | translate }}" class="material-icons w3-pointer w3-xxlarge w3-right">file_download</i>
+		
+		<div id="backParamLight" class="paramLight notPrintable"></div>
+		<div class="w3-image w3-left">
+			<img id="picture" style="width:55%" class="w3-margin-left" src="/images/identiter.jpg" alt="{{ 'IDENTITY_PICTURE' | translate }}" />
+		</div>
+		<div class="w3-container">
+			<h1 id="name">Baptiste MARTIN</h1>
+			<h2 id="situation">{{ 'SITUATION' | translate }}</h2>
+		</div>
+		<nav class="notPrintable w3-topnav w3-border-top w3-theme w3-center w3-padding" ng-controller="NavController">
+			<a ng-click="href('Identity');" title="{{ 'IDENTITY_TITLE' | translate }}">{{ 'IDENTITY' | translate }}</a>
+			<a ng-click="href('Qualifications');" title="{{ 'QUALIFICATIONS_TITLE' | translate }}">{{ 'QUALIFICATIONS' | translate }}</a>
+			<a ng-click="href('PersonalProjects');" title="{{ 'PERSONAL_PROJECTS_TITLE' | translate }}">{{ 'PERSONAL_PROJECTS' | translate }}</a>
+			<a ng-click="href('Internships');" title="{{ 'INTERNSHIPS_TITLE' | translate }}">{{ 'INTERNSHIPS' | translate }}</a>
+			<a ng-click="href('Jobs');" title="{{ 'JOBS_TITLE' | translate }}">{{ 'JOBS' | translate }}</a>
+			<a ng-click="href('PersonalSkills');" title="{{ 'PERSONAL_SKILLS_TITLE' | translate }}">{{ 'PERSONAL_SKILLS' | translate }}</a>
+			<a ng-click="href('Certificates');" title="{{ 'CERTIFICATES_TITLE' | translate }}">{{ 'CERTIFICATES' | translate }}</a>
+			<a ng-click="href('Hobbies');" title="{{ 'HOBBIES_TITLE' | translate }}">{{ 'HOBBIES' | translate }}</a>
+		</nav>
+	</header>
+	<section ng-view></section>
+	<footer class="w3-footer w3-theme-dark w3-xlarge notPrintable">
+		<div>
+			<a target="_blank" href="http://www.linkedin.com/pub/baptiste-martin/87/a24/779">
+				<img style="width:10%" src="/images/linkedin.svg" title="LinkedIn&reg;" alt="LinkedIn&reg;" />
+			</a>
+			<a target="_blank" href="http://www.viadeo.com/profile/0024dqombk0knp1/fr">
+				<img style="width:10%" src="/images/viadeo.svg" title="Viadeo&reg;" alt="Viadeo&reg;" />
+			</a>
+			<a target="_blank" href="https://github.com/MartinBaptiste">
+				<img style="width:10%" src="/images/github.svg" title="Github&reg;" alt="Github&reg;" />
+			</a>
+			<p class="w3-right w3-medium">&copy; Copyright - Baptiste MARTIN</p>
+		</div>
+	</footer>
+</body>
+</html>

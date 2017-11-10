@@ -1,0 +1,30 @@
+<article class="w3-article w3-margin w3-padding-0 w3-card w3-border" itemscope itemtype="http://schema.org/Person">
+	<h3 class="w3-theme-light w3-margin-0 w3-center w3-text-theme w3-padding w3-xxlarge">{{ 'IDENTITY' | translate }}</h3>
+	<div class="w3-container">
+		<div class="notPrintable">
+			<label class="w3-left">{{ 'NAME' | translate }} :</label>
+			<p itemprop="familyName">MARTIN</p>
+		</div>
+		<div class="notPrintable">
+			<label class="w3-left">{{ 'SURNAME' | translate }} :</label>
+			<p itemprop="name">Baptiste, Thibault, Guillaume</p>
+		</div>
+		<div>
+			<label class="w3-left">{{ 'BIRTH_DATE' | translate }} :</label>
+			<p itemprop="birthDate">{{ 'BIRTH_DATE_VALUE' | translate }}</p>
+		</div>
+		<div>
+			<label class="w3-left">{{ 'ADDRESS' | translate }} :</label>
+			<p itemprop="address">14 Impasse la Janaie - 35350 Saint M&eacute;loir Des Ondes</p>
+		</div>
+		<div>
+			<label class="w3-left">{{ 'PHONE' | translate }} :</label>
+			<p itemprop="phone">{{ phoneNumber }}</p>
+		</div>
+		<div>
+			<label class="w3-left">{{ 'MAIL' | translate }} :</label>
+			<p itemprop="email"><a ng-click="sendMail();">{{ email }}</a></p>
+		</div>
+		<p itemprop="description">{{ 'DESCRIPTION' | translate }}</p>
+	</div>
+</article>
