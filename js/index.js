@@ -118,8 +118,8 @@ onlineCV.config(function ($translateProvider, $routeProvider, $locationProvider)
 		}
 	});
 
-	// configure html5 to get links
-	$locationProvider.html5Mode(true);
+	// configure html5 to get links | remove from work in Github
+	//$locationProvider.html5Mode(true);
 });
 
 onlineCV.filter('replace', function() {
