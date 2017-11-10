@@ -8,7 +8,7 @@ var translationsEN = {
 	PDF_GENERATION: 'Generate CV in PDF',
 	PDF_EXPORT: 'PDF export',
 	IDENTITY_PICTURE: 'Photo identification Baptiste MARTIN',
-	SITUATION: 'Apprenticeship in Jouve ITS',
+	SITUATION: 'Software engineer in Flatirons Jouve',
 
 	// Navigation
 	IDENTITY: 'Identity',
