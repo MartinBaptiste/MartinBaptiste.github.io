@@ -28,7 +28,7 @@ function position(x, y) {
 	}
 }
 
-var onlineCV = angular.module('OnlineCV', ['pascalprecht.translate', 'ngRoute', 'ngJsPDF']);
+var onlineCV = angular.module('OnlineCV', ['pascalprecht.translate', 'ngRoute']);
 
 onlineCV.factory('selectLanguage', function($translate, $location) {
 	return function(language) {
@@ -128,7 +128,7 @@ onlineCV.filter('replace', function() {
 	};
 });
 
-onlineCV.controller('HeaderController', function ($scope, $location, $timeout, $angularJsPDF, selectLanguage) {
+onlineCV.controller('HeaderController', function ($scope, $location, $timeout, selectLanguage) {
 	/**
 	 * Fonction qui affiche la popup de modification des parametres
 	 */
@@ -165,21 +165,22 @@ onlineCV.controller('HeaderController', function ($scope, $location, $timeout, $
 	};
 
 	$scope.createPDF = function() {
-		$angularJsPDF.loadTemplate([
-			{ url: "templates/identity.html" },
-			{ url: "templates/qualifications.html" },
-			{ url: "templates/personal-projects.html" },
-			{ url: "templates/internships.html" },
-			{ url: "templates/jobs.html" },
-			{ url: "templates/personal-skills.html" },
-			{ url: "templates/certificates.html" },
-			{ url: "templates/hobbies.html" }
-		]);
+		console.log('TODO');
+		//$angularJsPDF.loadTemplate([
+		//	{ url: "templates/identity.html" },
+		//	{ url: "templates/qualifications.html" },
+		//	{ url: "templates/personal-projects.html" },
+		//	{ url: "templates/internships.html" },
+		//	{ url: "templates/jobs.html" },
+		//	{ url: "templates/personal-skills.html" },
+		//	{ url: "templates/certificates.html" },
+		//	{ url: "templates/hobbies.html" }
+		//]);
 
-		$angularJsPDF.addSkipElement(".notPrintable");
-		$angularJsPDF.applyHTMLVisitor(10, 10);
+		//$angularJsPDF.addSkipElement(".notPrintable");
+		//$angularJsPDF.applyHTMLVisitor(10, 10);
 					
-		$angularJsPDF.savePDF("test.pdf");
+		//$angularJsPDF.savePDF("test.pdf");
 	};
 
 	/**
